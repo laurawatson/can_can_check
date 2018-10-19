@@ -31,6 +31,7 @@ end
 ```
   
  ## The problem
-When you first login as the Adviser user and try to access the foo show page it will redirect you to the home page, despite the adviser user having access to foo. If you then head back to the foo show page you will be allowed in. 
+Steps to reproduce:
+First start the server and login as the Adviser user. Go to the Foo index page and try to access the foo show page. It will immediately redirect you to the home page, despite the adviser user having access to foo. Then if you head back to the foo show page you will be allowed in. 
 
 It is also impossible to show this in the tests as tests preload everything. 
