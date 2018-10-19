@@ -33,4 +33,4 @@ end
  ## The problem
 When you first login as the Adviser user and try to access the foo show page it will redirect you to the home page, despite the adviser user having access to foo. If you then head back to the foo show page you will be allowed in. 
 
-It is also impossible to test this as tests preload everything. 
+It is also impossible to show this in the tests as tests preload everything. 
