@@ -9,7 +9,7 @@ class Ability
     end
     if user.adviser?
       can :read, Foo, user_roles: { user: user }
-      can :create, Invite, bar: { user_roles: { user: user } }
+      can :create, Invite, foo: { user_roles: { user: user } }
     end
     #
     # The first argument to `can` is the action you are giving the user

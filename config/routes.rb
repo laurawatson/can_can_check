@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :homes
   resources :invites
   devise_for :users
-  root to: 'bars#index'
+  root to: 'homes#index'
   resources :user_roles
   resources :roles
   resources :bars
