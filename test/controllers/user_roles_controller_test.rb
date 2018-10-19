@@ -20,7 +20,7 @@ class UserRolesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_role" do
     assert_difference('UserRole.count') do
-      post user_roles_url, params: { user_role: { role: roles(:three), subject: @user_role.subject, user: users(:three) } }
+      post user_roles_url, params: { user_role: { role_id: roles(:three).id, user_id: users(:three).id } }
     end
 
     assert_redirected_to user_role_url(UserRole.last)
@@ -37,7 +37,7 @@ class UserRolesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_role" do
-    patch user_role_url(@user_role), params: { user_role: { role: @user_role.role, subject: @user_role.subject, user: @user_role.user.id } }
+    patch user_role_url(@user_role), params: { user_role: { role_id: @user_role.role.id, subject: @user_role.subject, user_id: users(:one).id } }
     assert_redirected_to user_role_url(@user_role)
   end
 
