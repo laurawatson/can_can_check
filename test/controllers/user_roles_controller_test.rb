@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class UserRolesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @user_role = user_roles(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -17,7 +20,7 @@ class UserRolesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_role" do
     assert_difference('UserRole.count') do
-      post user_roles_url, params: { user_role: { roles: @user_role.roles, subject: @user_role.subject, users: @user_role.users } }
+      post user_roles_url, params: { user_role: { role: roles(:three), subject: @user_role.subject, user: users(:three) } }
     end
 
     assert_redirected_to user_role_url(UserRole.last)
@@ -34,7 +37,7 @@ class UserRolesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_role" do
-    patch user_role_url(@user_role), params: { user_role: { roles: @user_role.roles, subject: @user_role.subject, users: @user_role.users } }
+    patch user_role_url(@user_role), params: { user_role: { role: @user_role.role, subject: @user_role.subject, user: @user_role.user.id } }
     assert_redirected_to user_role_url(@user_role)
   end
 
