@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :user_roles, as: :subject
+  has_many :user_roles
   has_many :roles, through: :user_roles
   has_many :bars, through: :user_roles
   has_many :foos, through: :user_roles
